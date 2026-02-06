@@ -20,7 +20,7 @@ Read WorkflowContext.md for:
 - `Planning Mode`: `single-model` | `multi-model` | `multi-model-deep`
 - `Planning Models`: comma-separated model names (for multi-model modes)
 
-If `Planning Mode` field is missing, default to `single-model` (backwards compatibility).
+If `Planning Mode` field is missing, **ask the user** which mode to use (`single-model`, `multi-model`, or `multi-model-deep`) before proceeding. Do not assume a default.
 
 {{#cli}}
 If mode is `multi-model` or `multi-model-deep`, parse the models list. Default: `latest GPT, latest Gemini, latest Claude Opus`.
@@ -178,7 +178,7 @@ Save to: `.paw/work/<work-id>/ImplementationPlan.md`
 2. Create `.paw/work/<work-id>/planning/` directory if it doesn't exist
 3. Create `.paw/work/<work-id>/planning/.gitignore` with content `*` (if not already present)
 4. Resolve model intents to actual model names (e.g., "latest GPT" → current GPT model)
-5. Present resolved models for user confirmation:
+5. Present resolved models for confirmation:
    ```
    About to run multi-model planning with:
    - [resolved model 1]
@@ -188,9 +188,8 @@ Save to: `.paw/work/<work-id>/ImplementationPlan.md`
    Mode: [multi-model | multi-model-deep]
    Estimated LLM calls: [N+1 for multi-model | 2N+1 for multi-model-deep] (N = number of models)
 
-   Proceed with these models, or specify different ones?
+   Proceed?
    ```
-   Allow user to confirm or provide alternative model list.
 
 6. **Round 1 — Independent Plans (parallel)**: Spawn parallel subagents using `task` tool with `model` parameter for each model. Each subagent receives the planning subagent prompt below along with the full contents of Spec.md, CodeResearch.md, and SpecResearch.md. Save per-model plans to `PLAN-{MODEL}.md` in the `planning/` subfolder.
 

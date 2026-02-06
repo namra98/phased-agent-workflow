@@ -37,18 +37,19 @@ Bootstrap skill that initializes the PAW workflow directory structure. This runs
 | `final_review_mode` | No | `multi-model` | `single-model`, `multi-model` |
 | `final_review_interactive` | No | `true` | boolean |
 | `final_review_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
-| `planning_mode` | No | `single-model` | `single-model`, `multi-model`, `multi-model-deep` |
+| `planning_mode` | No | — | `single-model`, `multi-model`, `multi-model-deep` |
 | `planning_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
-| `plan_review_mode` | No | `single-model` | `single-model`, `multi-model` |
+| `plan_review_mode` | No | — | `single-model`, `multi-model` |
 | `plan_review_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
 
 ### Handling Missing Parameters
 
 When parameters are not provided:
-1. Apply defaults from the table above
-2. Check user-level defaults in `copilot-instructions.md` or `AGENTS.md` (these override table defaults)
-3. **Present configuration summary** and ask for confirmation before proceeding
-4. If user requests changes, update values and re-confirm
+1. Apply defaults from the table above (where a default exists)
+2. For parameters with no default (marked `—`), **ask the user** to choose a value before proceeding
+3. Check user-level defaults in `copilot-instructions.md` or `AGENTS.md` (these override table defaults)
+4. **Present configuration summary** and ask for confirmation before proceeding
+5. If user requests changes, update values and re-confirm
 
 This mirrors the VS Code command flow which prompts sequentially but allows skipping with defaults.
 

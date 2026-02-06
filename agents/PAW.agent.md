@@ -166,20 +166,19 @@ When pausing at a milestone, provide:
 **Multi-model plan review** (orchestrator-managed, CLI only):
 When `Plan Review Mode` is `multi-model` in WorkflowContext.md, the orchestrator handles plan review differently since `paw-plan-review` runs as a subagent and cannot spawn sub-subagents:
 
-1. Read `Plan Review Mode` and `Plan Review Models` from WorkflowContext.md. If fields are missing, default to `single-model`.
+1. Read `Plan Review Mode` and `Plan Review Models` from WorkflowContext.md. If fields are missing, **ask the user** which mode to use before proceeding.
 2. If `single-model`: Delegate to `paw-plan-review` as a single subagent (current behavior).
 3. If `multi-model` (CLI only):
    a. Resolve model intents to actual model names (e.g., "latest GPT" → current GPT model)
-   b. Present resolved models and review mode for user confirmation:
+   b. Present resolved models for confirmation:
       ```
       About to run multi-model plan review with:
       - [resolved model 1]
       - [resolved model 2]
       - [resolved model 3]
 
-      Proceed with these models, switch to single-model, or specify different ones?
+      Proceed?
       ```
-      Allow user to confirm, switch to single-model, or provide alternative model list.
    c. Create `.paw/work/<work-id>/planning/` directory and `.gitignore` with `*` if not already present
    c. Spawn N parallel `paw-plan-review` subagents using `task` tool with `model` parameter (one per model), each receiving the same plan review inputs (ImplementationPlan.md, Spec.md, CodeResearch.md)
    d. Save per-model verdicts as `PLAN-REVIEW-{MODEL}.md` in the `planning/` subfolder
