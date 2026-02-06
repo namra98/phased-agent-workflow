@@ -186,7 +186,7 @@ Save to: `.paw/work/<work-id>/ImplementationPlan.md`
    - [resolved model 3]
 
    Mode: [multi-model | multi-model-deep]
-   Estimated LLM calls: [4 for multi-model | 7 for multi-model-deep]
+   Estimated LLM calls: [N+1 for multi-model | 2N+1 for multi-model-deep] (N = number of models)
 
    Proceed with these models, or specify different ones?
    ```
@@ -221,7 +221,7 @@ Each subagent receives this prompt (self-contained, since subagents cannot load 
 
 Each model receives all plan drafts and this prompt:
 
-> You are reviewing multiple independently-created implementation plans for the same feature. You have access to all plans including your own.
+> You are reviewing multiple independently-created implementation plans for the same feature. Each plan is provided as PLAN-{MODEL}.md. You have access to all plans including your own.
 >
 > Analyze all plans and produce a structured critique covering:
 > 1. **Strengths per plan** — best ideas worth keeping from each approach

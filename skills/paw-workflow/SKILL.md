@@ -61,7 +61,7 @@ Humans have final authority over all workflow decisions:
 | `paw-spec-review` | Review spec for quality, completeness, clarity | Review feedback |
 | `paw-code-research` | Document implementation details with file:line refs | CodeResearch.md |
 | `paw-planning` | Create implementation plan, revise plan (single/multi-model) | ImplementationPlan.md, planning/ |
-| `paw-plan-review` | Review plan for feasibility, spec alignment (single/multi-model) | Review feedback |
+| `paw-plan-review` | Review plan for feasibility, spec alignment (single/multi-model) | Review feedback, PLAN-REVIEW-*.md in planning/ |
 | `paw-implement` | Execute plan phases, make code changes | Code files, Docs.md |
 | `paw-impl-review` | Review implementation quality, return verdict | Review feedback |
 | `paw-final-review` | Pre-PR review with multi-model or single-model | REVIEW*.md in reviews/ |
