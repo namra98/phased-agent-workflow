@@ -39,7 +39,7 @@ Bootstrap skill that initializes the PAW workflow directory structure. This runs
 | `final_review_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
 | `planning_mode` | No | — | `single-model`, `multi-model`, `multi-model-deep` |
 | `planning_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
-| `plan_review_mode` | No | — | `single-model`, `multi-model` |
+| `plan_review_mode` | No | `single-model` | `single-model`, `multi-model` |
 | `plan_review_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
 
 ### Handling Missing Parameters
@@ -48,7 +48,6 @@ When parameters are not provided:
 1. Apply defaults from the table above (where a default exists)
 2. For parameters with no default (marked `—`), **ask the user** to choose a value before proceeding:
    - `planning_mode`: Ask "Which planning mode? `single-model` (one model creates the plan), `multi-model` (3 models create independent plans, then synthesize), or `multi-model-deep` (3 models plan, critique each other, then synthesize)"
-   - `plan_review_mode`: Ask "Which plan review mode? `single-model` or `multi-model`?"
 3. Check user-level defaults in `copilot-instructions.md` or `AGENTS.md` (these override table defaults)
 4. **Present configuration summary** and ask for confirmation before proceeding
 5. If user requests changes, update values and re-confirm
