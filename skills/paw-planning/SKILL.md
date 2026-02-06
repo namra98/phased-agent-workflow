@@ -20,10 +20,10 @@ Read WorkflowContext.md for:
 - `Planning Mode`: `single-model` | `multi-model` | `multi-model-deep`
 - `Planning Models`: comma-separated model names (for multi-model modes)
 
-If `Planning Mode` field is missing, **ask the user** which mode to use (`single-model`, `multi-model`, or `multi-model-deep`) before proceeding. Do not assume a default.
+The planning mode is set during `paw-init`. If the field is missing (legacy workflow), **ask the user** which mode to use before proceeding. Do not assume a default.
 
 {{#cli}}
-If mode is `multi-model` or `multi-model-deep`, parse the models list. Default: `latest GPT, latest Gemini, latest Claude Opus`.
+If mode is `multi-model` or `multi-model-deep`, parse the models list. Default: `latest GPT, latest Gemini, latest Claude Opus`. Do not ask the user to pick models — always use the defaults unless explicitly overridden in WorkflowContext.md.
 {{/cli}}
 {{#vscode}}
 **Note**: VS Code only supports `single-model` mode. If `multi-model` or `multi-model-deep` is configured, report to user: "Multi-model planning not available in VS Code; running single-model planning." Proceed with single-model.
