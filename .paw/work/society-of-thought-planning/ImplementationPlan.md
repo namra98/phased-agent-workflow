@@ -30,7 +30,7 @@ Add multi-model consensus support to the PAW Planning stage by extending `paw-pl
 - Changes to `paw-transition` routing — existing transitions work as-is since multi-model planning still produces a single `ImplementationPlan.md`
 
 ## Phase Status
-- [ ] **Phase 1: Configuration & Initialization** - Add planning config fields to paw-init and WorkflowContext.md template
+- [x] **Phase 1: Configuration & Initialization** - Add planning config fields to paw-init and WorkflowContext.md template
 - [ ] **Phase 2: Multi-Model Planning** - Extend paw-planning with multi-model and multi-model-deep modes
 - [ ] **Phase 3: Multi-Model Plan Review** - Extend PAW orchestrator to spawn parallel plan-review subagents with weighted synthesis
 - [ ] **Phase 4: Reference Documentation & Workflow Updates** - Update paw-workflow, artifact structure docs, and gitignore patterns
