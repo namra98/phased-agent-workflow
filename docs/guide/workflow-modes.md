@@ -170,8 +170,8 @@ Planning can use multiple AI models to independently create competing implementa
 
 | Field | Default | Options | Description |
 |-------|---------|---------|-------------|
-| Planning Mode | single-model | `single-model`, `multi-model`, `multi-model-deep` | Planning execution mode |
-| Planning Models | latest GPT, latest Gemini, latest Claude Opus | comma-separated | Models for multi-model planning (CLI only) |
+| Plan Generation Mode | single-model | `single-model`, `multi-model`, `multi-model-deep` | Plan generation execution mode |
+| Plan Generation Models | latest GPT, latest Gemini, latest Claude Opus | comma-separated | Models for multi-model plan generation (CLI only) |
 | Plan Review Mode | single-model | `single-model`, `multi-model` | Plan review execution mode |
 | Plan Review Models | latest GPT, latest Gemini, latest Claude Opus | comma-separated | Models for multi-model plan review (CLI only) |
 
@@ -185,7 +185,8 @@ Planning can use multiple AI models to independently create competing implementa
 
 - Multi-model planning is **CLI only** — VS Code falls back to single-model
 - Multi-model plan review uses a **weighted verdict**: PASS if majority passes, all concerns surfaced regardless
-- Per-model artifacts are saved in a gitignored `planning/` subfolder
+- Per-model artifacts are saved in a gitignored `planning/` subfolder (distinct from `reviews/` which holds final review artifacts)
+- With all multi-model options enabled (plan generation + plan review + final review), expect 9-13 LLM calls before any code is written. This is the max-quality configuration, not the default.
 
 ## Selecting Your Mode
 

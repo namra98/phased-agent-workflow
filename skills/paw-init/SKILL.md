@@ -37,8 +37,8 @@ Bootstrap skill that initializes the PAW workflow directory structure. This runs
 | `final_review_mode` | No | `multi-model` | `single-model`, `multi-model` |
 | `final_review_interactive` | No | `true` | boolean |
 | `final_review_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
-| `planning_mode` | No | `single-model` | `single-model`, `multi-model`, `multi-model-deep` |
-| `planning_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
+| `plan_generation_mode` | No | `single-model` | `single-model`, `multi-model`, `multi-model-deep` |
+| `plan_generation_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
 | `plan_review_mode` | No | `single-model` | `single-model`, `multi-model` |
 | `plan_review_models` | No | `latest GPT, latest Gemini, latest Claude Opus` | comma-separated model names or intents |
 
@@ -95,8 +95,8 @@ Final Agent Review: <final_agent_review>
 Final Review Mode: <final_review_mode>
 Final Review Interactive: <final_review_interactive>
 Final Review Models: <final_review_models>
-Planning Mode: <planning_mode>
-Planning Models: <planning_models>
+Plan Generation Mode: <plan_generation_mode>
+Plan Generation Models: <plan_generation_models>
 Plan Review Mode: <plan_review_mode>
 Plan Review Models: <plan_review_models>
 Custom Workflow Instructions: <custom_instructions or "none">

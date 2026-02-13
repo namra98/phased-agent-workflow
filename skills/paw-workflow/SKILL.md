@@ -98,6 +98,40 @@ All implementation artifacts are stored in a consistent directory structure:
 
 **Work ID Derivation**: Normalized from Work Title, lowercase with hyphens (e.g., "Auth System" → "auth-system").
 
+## PLAN-REVIEW-SYNTHESIS.md Template
+
+Used by the PAW orchestrator when multi-model plan review is enabled. Save to `.paw/work/<work-id>/planning/PLAN-REVIEW-SYNTHESIS.md`.
+
+```markdown
+# Plan Review Synthesis
+
+**Date**: [date]
+**Reviewers**: [model list]
+**Plan**: `.paw/work/<work-id>/ImplementationPlan.md`
+
+## Overall Verdict: [PASS | FAIL]
+Majority: [N/M] models returned [PASS|FAIL]
+
+## Consensus Issues (All Models Agree)
+[Highest priority - all models flagged these]
+
+## Partial Agreement (2+ Models)
+[High priority - multiple models flagged]
+
+## Single-Model Findings
+[Unique findings worth considering]
+
+## Consolidated Feedback
+### BLOCKING
+[All blocking issues from all models, deduplicated]
+
+### IMPROVE
+[All improve suggestions, deduplicated]
+
+### NOTE
+[All notes, deduplicated]
+```
+
 ## Default Flow Guidance
 
 Typical greenfield progression (adapt based on user intent and workflow state):
